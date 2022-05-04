@@ -247,33 +247,7 @@ categories_as_tabs:
   files:
   social media:
 
-engines:
-  - name : petit vapoteur
-    engine : xpath_flex
-    search_url : https://www.lepetitvapoteur.com/en/recherche?search_query={query}
-    template: products.html
-    results_xpath: //li[contains(@class,"vignette-produit")]/div[contains(@class,"info-container")]
-    field_definition:
-      - field_name: url
-        xpath: (./a[contains(@class,"product-labels")])/@href
-        extract: url
-      - field_name: title
-        xpath: .//div[contains(@class,"titre")]/a/h2/text()
-      - field_name: content
-        xpath: .//div[contains(@class,"description")]/a/text()
-      - field_name: price
-        xpath: .//span[contains(@class,"product_price")]/text()
-      - field_name: thumbnail
-        xpath: (.//a[contains(@class,"image")]/img)/@data-src
-        extract: url
-      - field_name: has_stock
-        xpath: ..//a[contains(@class,"text-unavailable")]
-        extract: boolean_negate
-    categories : shopping
-    timeout : 10.0
-    shortcut : pv
-    soft_max_redirects: 1
-    
+engines: 
   - name : baidu
     engine : baidu
     shortcut : bd
